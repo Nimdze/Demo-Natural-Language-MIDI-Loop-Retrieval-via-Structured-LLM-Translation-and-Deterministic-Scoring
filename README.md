@@ -34,19 +34,20 @@ taxonomy generation, and the search-engine package:
 See that repository for how the datasets are produced, how the taxonomy is generated, and the
 retrieval experiments. Only the subset of the search engine needed to run the demo is vendored here.
 
-## Why this approach
+## Overview
 
-Many retrieval systems approximate relevance with a learned model, which is opaque and needs
-training data. This demo takes a different route:
+Modern music production relies heavily on short, single-instrument MIDI loops. Existing Music
+Information Retrieval tools are optimized for audio or full pieces, and conventional retrieval
+methods struggle with the precise logical constraints and per-musician customization that producers
+need for symbolic loop retrieval: they capture broad similarity but cannot enforce strict
+constraints (`not`, `only`), directional bounds, or tiered composition, and a context-free MIDI loop
+is inherently malleable — its "feel" depends on the rendering synthesizer.
 
-1. **An LLM translates the query** into a structured set of musical-concept targets drawn from a
-   fixed taxonomy.
-2. **A deterministic scorer** matches those targets against precomputed per-file feature tags and
-   ranks the library.
-
-Because the whole pipeline is explicit, every result can be explained: the UI shows the concept
-targets the model selected and which of them matched each file exactly or via a tolerance step.
-There is nothing to train and no black-box similarity score.
+This project is built entirely on **structural extraction**. Instead of asking a model to judge
+subjective qualities, it extracts measurable musical features, quantizes them into ordered semantic
+levels, and uses the LLM only as a translator from natural language into that bounded schema. The
+division of labor makes retrieval verifiable and debuggable, and lets users inject custom
+definitions through an instructions prompt in real time — with no re-indexing.
 
 ## Features
 
