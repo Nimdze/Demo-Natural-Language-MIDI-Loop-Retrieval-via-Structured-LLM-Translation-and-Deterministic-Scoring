@@ -6,6 +6,3 @@ __pycache__/
 .DS_Store
 **/__MACOSX/
 ._*
-
-# Local-only comparison artifacts (not published)
-datasets/*/output/comparison_results_*.json

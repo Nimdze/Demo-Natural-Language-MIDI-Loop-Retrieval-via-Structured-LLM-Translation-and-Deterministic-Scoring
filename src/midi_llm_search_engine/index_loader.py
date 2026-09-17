@@ -17,9 +17,8 @@ class SearchIndex:
     ):
         self.db_path = Path(db_path)
         self.taxonomy_path = Path(taxonomy_path)
-        # Optional subset of file_ids this index is allowed to rank. Used to
-        # restrict structured retrieval to the same pooled files as the other
-        # baseline conditions for a fair comparison. None = all files.
+        # Optional subset of file_ids this index is allowed to rank.
+        # None = all files.
         self.restrict_to = restrict_to
 
         self.taxonomy: dict[str, dict[str, Any]] = {}

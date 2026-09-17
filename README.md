@@ -27,7 +27,7 @@ This is the **self-contained demo** released as a companion to the paper: a froz
 retrieval application, bundled with four pre-analyzed libraries so it runs and deploys on its own.
 
 The full project lives in the main repository — MIDI preprocessing, feature extraction and tagging,
-taxonomy generation, the search-engine package, and the baseline evaluation harness:
+taxonomy generation, and the search-engine package:
 
 **➡️ [Nimdze/MIDI-Loop-LLM-Strructured-Retrieval](https://github.com/Nimdze/MIDI-Loop-LLM-Strructured-Retrieval)**
 
@@ -36,7 +36,7 @@ retrieval experiments. Only the subset of the search engine needed to run the de
 
 ## Why this approach
 
-Most audio/MIDI retrieval systems rely on learned embeddings, which are opaque and require
+Many retrieval systems approximate relevance with a learned model, which is opaque and needs
 training data. This demo takes a different route:
 
 1. **An LLM translates the query** into a structured set of musical-concept targets drawn from a
@@ -46,7 +46,7 @@ training data. This demo takes a different route:
 
 Because the whole pipeline is explicit, every result can be explained: the UI shows the concept
 targets the model selected and which of them matched each file exactly or via a tolerance step.
-There is no embedding index to train and no black-box similarity score.
+There is nothing to train and no black-box similarity score.
 
 ## Features
 

@@ -421,7 +421,7 @@ def run() -> None:
             "**How it works**\n\n"
             "1. An LLM translates your query into structured musical concepts.\n"
             "2. A deterministic scorer ranks every loop against those concepts.\n\n"
-            "No embeddings and no fine-tuning — every ranking is explainable."
+            "Rule-based scoring, no training — every ranking is explainable."
         )
         with st.expander("Model settings", expanded=False):
             api_key = st.text_input("API key", type="password", value="",
