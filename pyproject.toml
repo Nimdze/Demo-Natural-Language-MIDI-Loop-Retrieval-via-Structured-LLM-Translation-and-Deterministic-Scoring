@@ -1,0 +1,24 @@
+[project]
+name = "demo"
+version = "0.0.0"
+description = "Demo app for paper — search over analyzed MIDI libraries"
+requires-python = "==3.14.*"
+dependencies = [
+    "streamlit==1.59.2",
+    "pretty_midi==0.2.11",
+    "numpy==2.5.1",
+    "matplotlib==3.11.1",
+    "openai==2.48.0",
+    "pydantic==2.13.4",
+    "pydantic-core==2.46.4",
+]
+
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.Python
+.DS_Store
+**/__MACOSX/
+._*
+
+# Local-only comparison artifacts (not published)
+datasets/*/output/comparison_results_*.json
