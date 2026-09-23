@@ -421,7 +421,8 @@ def run() -> None:
             "**How it works**\n\n"
             "1. An LLM translates your query into structured musical concepts.\n"
             "2. A deterministic scorer ranks every loop against those concepts.\n\n"
-            "Rule-based scoring, no training — every ranking is explainable."
+            "Transparent & steerable: every ranking is driven by explicit concepts, and the "
+            "search-instruction line lets you redirect how the LLM interprets your query."
         )
         with st.expander("Model settings", expanded=False):
             api_key = st.text_input("API key", type="password", value="",
@@ -460,20 +461,16 @@ def run() -> None:
     st.markdown(
         "Describe the loop you are looking for in plain language. The system translates your query "
         "into structured musical concepts, then ranks every loop in the bundled libraries by how "
-        "well it matches — and shows you exactly which concepts drove each result."
+        "well it matches — and shows you exactly which concepts drove each result and why each "
+        "concept was chosen. The advantage of this system is that it is transparent and steerable: "
+        "if the interpretation drives wrong concept selection, use the search instruction line to "
+        "change how the queries are interpreted with a natural language prompt.\n\n"
+        "**Note:** MIDI is inherently ambiguous — use the BPM and instrument controls beneath the "
+        "piano roll to make the results match your intentions. The bundled dataset is limited, all "
+        "files are in 4/4 meter, and key and scale metadata is not always reliable — some types of "
+        "files that a user might be searching for may not exist in the dataset.\n\n"
+        "Try: *\"complex drums with lots of variation\"* · *\"soft ambient piano piece\"*"
     )
-    st.caption(
-        "Try: *\"fast complex drums with lots of variation\"* · *\"soft ambient piano piece\"* · "
-        "*\"syncopated funk bass with a loose feel\"*"
-    )
-    with st.expander("About this demo & known limitations"):
-        st.markdown(
-            "- The bundled datasets are deliberately small (four libraries) and all files are 4/4; "
-            "key and time-signature metadata is approximate.\n"
-            "- MIDI is inherently ambiguous: use the BPM and instrument controls beneath the piano roll "
-            "to audition a result the way you intended it.\n"
-            "- Queries are sent to a hosted LLM to be translated into concept targets."
-        )
 
     st.subheader("Search")
 
