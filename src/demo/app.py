@@ -420,9 +420,7 @@ def run() -> None:
         st.markdown(
             "**How it works**\n\n"
             "1. An LLM translates your query into structured musical concepts.\n"
-            "2. A deterministic scorer ranks every loop against those concepts.\n\n"
-            "Transparent & steerable: every ranking is driven by explicit concepts, and the "
-            "search-instruction line lets you redirect how the LLM interprets your query."
+            "2. A deterministic scorer ranks every loop against those concepts."
         )
         with st.expander("Model settings", expanded=False):
             api_key = st.text_input("API key", type="password", value="",
