@@ -429,14 +429,6 @@ def run() -> None:
                             "Local (Ollama)": "http://localhost:11434/v1"}.get(provider, "")
             model = st.text_input("Model", value="gemini-3.5-flash-lite")
 
-        st.divider()
-        st.markdown(
-            "**Note:** MIDI files lack sound and context — adjust the BPM and instrument controls "
-            "below the piano roll to preview them properly. The bundled library is limited: all "
-            "loops are in 4/4 meter, key/scale metadata may be inaccurate, and some file types may "
-            "not be present."
-        )
-
         if os.getenv("DEMO_DEBUG"):
             with st.expander("Playback debug"):
                 info = _debug_playback()
@@ -461,6 +453,11 @@ def run() -> None:
         "concepts and interpretations driving each match.\n\n"
         "If your intent is missed, guide the interpretation directly using the search instructions line.\n\n"
         "Try: *\"complex drums with lots of variation\"* · *\"soft ambient piano piece\"*"
+    )
+    st.caption(
+        "**Note:** MIDI files lack sound and context — adjust the BPM and instrument controls "
+        "below the piano roll to preview them properly. The bundled library is limited: all loops "
+        "are in 4/4 meter, key/scale metadata may be inaccurate, and some file types may not be present."
     )
 
     st.subheader("Search")
