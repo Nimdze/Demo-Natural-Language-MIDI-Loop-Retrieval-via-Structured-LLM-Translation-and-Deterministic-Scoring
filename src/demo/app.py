@@ -429,6 +429,7 @@ def run() -> None:
                             "Local (Ollama)": "http://localhost:11434/v1"}.get(provider, "")
             model = st.text_input("Model", value="gemini-3.5-flash-lite")
 
+        st.divider()
         st.markdown(
             "**Note:** MIDI files lack sound and context — adjust the BPM and instrument controls "
             "below the piano roll to preview them properly. The bundled library is limited: all "
@@ -446,7 +447,6 @@ def run() -> None:
                     for k, v in _debug_fluidsynth_info.items():
                         st.text(f"  {k}: {v}")
 
-        st.divider()
         st.caption(f"{len(datasets)} datasets indexed")
         st.markdown(
             "📦 This is a frozen demo. Full pipeline, datasets and evaluation: "
