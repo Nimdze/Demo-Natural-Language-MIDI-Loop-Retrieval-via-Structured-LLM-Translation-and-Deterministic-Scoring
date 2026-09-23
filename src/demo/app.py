@@ -459,22 +459,19 @@ def run() -> None:
 
     st.title("Natural-language MIDI loop retrieval")
     st.markdown(
-        "Describe the loop you are looking for in plain language. The system translates your query "
-        "into structured musical concepts, then ranks every loop in the bundled libraries by how "
-        "well it matches — and shows you exactly which concepts drove each result and why each "
-        "concept was chosen. The advantage of this system is that it is transparent and steerable: "
-        "if the interpretation drives wrong concept selection, use the search instruction line to "
-        "change how the queries are interpreted with a natural language prompt.\n\n"
-        "**Note:** MIDI is inherently ambiguous — use the BPM and instrument controls beneath the "
-        "piano roll to make the results match your intentions. The bundled dataset is limited, all "
-        "files are in 4/4 meter, and key and scale metadata is not always reliable — some types of "
-        "files that a user might be searching for may not exist in the dataset.\n\n"
+        "Describe your desired loop in plain language. The system translates your prompt into "
+        "structured musical concepts, ranks the bundled loops by fit, and displays the exact "
+        "concepts and interpretations driving each match. If your intent is missed, guide the "
+        "interpretation directly using the search instructions line.\n\n"
+        "**Note:** MIDI files lack sound and context — adjust the BPM and instrument controls below "
+        "the piano roll to preview them properly. The bundled library is limited: all loops are in "
+        "4/4 meter, key/scale metadata may be inaccurate, and some file types may not be present.\n\n"
         "Try: *\"complex drums with lots of variation\"* · *\"soft ambient piano piece\"*"
     )
 
     st.subheader("Search")
 
-    query = st.text_input("Search query", placeholder='e.g. "fast complex drums with lots of variation" or "soft ambient piano piece"')
+    query = st.text_input("Search query", placeholder='e.g. "complex drums with lots of variation" or "soft ambient piano piece"')
     instructions = st.text_input("Search instructions (optional)", placeholder="Refine how the LLM should interpret the query ...")
 
     if st.button("Search", type="primary"):
