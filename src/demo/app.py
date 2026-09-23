@@ -414,13 +414,6 @@ def run() -> None:
         return
 
     with st.sidebar:
-        st.markdown(
-            "**Note:** MIDI files lack sound and context — adjust the BPM and instrument controls "
-            "below the piano roll to preview them properly. The bundled library is limited: all "
-            "loops are in 4/4 meter, key/scale metadata may be inaccurate, and some file types may "
-            "not be present."
-        )
-        st.divider()
         with st.expander("Model settings", expanded=False):
             api_key = st.text_input("API key", type="password", value="",
                                     help="Optional. Paste your own key to override the demo's default provider.")
@@ -435,6 +428,13 @@ def run() -> None:
                             "Groq": "https://api.groq.com/openai/v1",
                             "Local (Ollama)": "http://localhost:11434/v1"}.get(provider, "")
             model = st.text_input("Model", value="gemini-3.5-flash-lite")
+
+        st.markdown(
+            "**Note:** MIDI files lack sound and context — adjust the BPM and instrument controls "
+            "below the piano roll to preview them properly. The bundled library is limited: all "
+            "loops are in 4/4 meter, key/scale metadata may be inaccurate, and some file types may "
+            "not be present."
+        )
 
         if os.getenv("DEMO_DEBUG"):
             with st.expander("Playback debug"):
@@ -458,8 +458,8 @@ def run() -> None:
     st.markdown(
         "Describe your desired loop in plain language. The system translates your prompt into "
         "structured musical concepts, ranks the bundled loops by fit, and displays the exact "
-        "concepts and interpretations driving each match. If your intent is missed, guide the "
-        "interpretation directly using the search instructions line.\n\n"
+        "concepts and interpretations driving each match.\n\n"
+        "If your intent is missed, guide the interpretation directly using the search instructions line.\n\n"
         "Try: *\"complex drums with lots of variation\"* · *\"soft ambient piano piece\"*"
     )
 
