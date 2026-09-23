@@ -418,9 +418,10 @@ def run() -> None:
         st.caption("Natural-language search over analyzed MIDI loops")
         st.divider()
         st.markdown(
-            "**How it works**\n\n"
-            "1. An LLM translates your query into structured musical concepts.\n"
-            "2. A deterministic scorer ranks every loop against those concepts."
+            "**Note:** MIDI files lack sound and context — adjust the BPM and instrument controls "
+            "below the piano roll to preview them properly. The bundled library is limited: all "
+            "loops are in 4/4 meter, key/scale metadata may be inaccurate, and some file types may "
+            "not be present."
         )
         with st.expander("Model settings", expanded=False):
             api_key = st.text_input("API key", type="password", value="",
@@ -461,9 +462,6 @@ def run() -> None:
         "structured musical concepts, ranks the bundled loops by fit, and displays the exact "
         "concepts and interpretations driving each match. If your intent is missed, guide the "
         "interpretation directly using the search instructions line.\n\n"
-        "**Note:** MIDI files lack sound and context — adjust the BPM and instrument controls below "
-        "the piano roll to preview them properly. The bundled library is limited: all loops are in "
-        "4/4 meter, key/scale metadata may be inaccurate, and some file types may not be present.\n\n"
         "Try: *\"complex drums with lots of variation\"* · *\"soft ambient piano piece\"*"
     )
 
