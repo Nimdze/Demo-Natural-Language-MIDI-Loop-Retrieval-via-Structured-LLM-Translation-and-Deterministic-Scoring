@@ -414,15 +414,13 @@ def run() -> None:
         return
 
     with st.sidebar:
-        st.title("🎹 MIDI Retriever")
-        st.caption("Natural-language search over analyzed MIDI loops")
-        st.divider()
         st.markdown(
             "**Note:** MIDI files lack sound and context — adjust the BPM and instrument controls "
             "below the piano roll to preview them properly. The bundled library is limited: all "
             "loops are in 4/4 meter, key/scale metadata may be inaccurate, and some file types may "
             "not be present."
         )
+        st.divider()
         with st.expander("Model settings", expanded=False):
             api_key = st.text_input("API key", type="password", value="",
                                     help="Optional. Paste your own key to override the demo's default provider.")
